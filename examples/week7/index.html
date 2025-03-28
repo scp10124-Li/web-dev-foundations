@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailwind CSS 練習</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
 
     <!-- 
     步驟一：引入 Tailwind CSS
@@ -18,51 +19,68 @@
   </head>
   <body>
     <!-- 導航列 -->
-    <nav>
-      <div>
-        <img src="https://placehold.jp/100x50.png" alt="Logo" />
-        <ul>
-          <li><a href="#">首頁</a></li>
-          <li><a href="#">關於我們</a></li>
-          <li><a href="#">服務項目</a></li>
-          <li><a href="#">聯絡資訊</a></li>
-        </ul>
-      </div>
-    </nav>
+<nav class="px-6 py-4 border-b mb-12 bg-white shadow-md fixed top-0 w-full z-10">
+  <div class="flex justify-between items-center">
+    <img src="https://placehold.jp/100x50.png" alt="Logo" />
+    <button class="md:hidden block text-gray-700" id="menu-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+    <ul class="hidden md:flex gap-x-4" id="menu">
+      <li><a href="#" class="hover:text-blue-500">首頁</a></li>
+      <li><a href="#" class="hover:text-blue-500">關於我們</a></li>
+      <li><a href="#" class="hover:text-blue-500">服務項目</a></li>
+      <li><a href="#" class="hover:text-blue-500">聯絡資訊</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('hidden');
+  });
+</script>
 
     <!-- 首頁橫幅 -->
-    <header>
-      <h1>探索 Tailwind CSS 的魅力</h1>
-      <p>透過實作學習現代化的 CSS 框架</p>
-      <div>
-        <button>開始學習</button>
-        <button>觀看教學</button>
-      </div>
-    </header>
+<header class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center py-16">
+  <h1 class="text-4xl font-bold mb-4">探索 Tailwind CSS 的魅力</h1>
+  <p class="text-lg mb-6">透過實作學習現代化的 CSS 框架</p>
+  <div class="flex justify-center gap-4">
+    <button class="bg-white text-blue-500 px-6 py-2 rounded shadow hover:bg-gray-100">開始學習</button>
+    <button class="bg-white text-blue-500 px-6 py-2 rounded shadow hover:bg-gray-100">觀看教學</button>
+  </div>
+</header>
 
     <!-- 主要內容區 -->
     <main>
       <!-- 特色介紹 -->
-      <section>
-        <h2>為什麼選擇我們？</h2>
-        <div>
-          <div>
-            <img src="https://placehold.jp/150x150.png" alt="圖示 1" />
-            <h3>快速開發</h3>
-            <p>使用 Utility-First 的方法，加速開發流程</p>
-          </div>
-          <div>
-            <img src="https://placehold.jp/150x150.png" alt="圖示 2" />
-            <h3>響應式設計</h3>
-            <p>輕鬆打造適配各種螢幕尺寸的網站</p>
-          </div>
-          <div>
-            <img src="https://placehold.jp/150x150.png" alt="圖示 3" />
-            <h3>客製化設計</h3>
-            <p>依據需求打造獨特的使用者介面</p>
-          </div>
-        </div>
-      </section>
+<section class="max-w-2xl mx-auto border-b pb-12 mb-16">
+  <h2 class="text-center font-bold text-3xl text-pink-800 mb-8">為什麼選擇我們？</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow">
+      <img class="w-full" src="https://placehold.jp/150x150.png" alt="圖示 1" />
+      <div class="px-6 py-4">
+        <h3 class="font-bold text-lg mb-2">快速開發</h3>
+        <p>使用 Utility-First 的方法，加速開發流程</p>
+      </div>
+    </div>
+    <div class="border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow">
+      <img class="w-full" src="https://placehold.jp/150x150.png" alt="圖示 2" />
+      <div class="px-6 py-4">
+        <h3 class="font-bold text-lg mb-2">響應式設計</h3>
+        <p>輕鬆打造適配各種螢幕尺寸的網站</p>
+      </div>
+    </div>
+    <div class="border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow">
+      <img class="w-full" src="https://placehold.jp/150x150.png" alt="圖示 3" />
+      <div class="px-6 py-4">
+        <h3 class="font-bold text-lg mb-2">客製化設計</h3>
+        <p>依據需求打造獨特的使用者介面</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- 產品展示 -->
       <section>
